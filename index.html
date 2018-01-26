@@ -18,9 +18,6 @@
 </head>
 <body>
   <div id="container" ng-app="myApp">
-      <ul>
-          <li ng-repeat="a in a track by $index">121212</li>
-      </ul>
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -35,6 +32,9 @@
         <a id="main-nav-toggle" class="nav-icon"></a>
           <a class="main-nav-link" href="/">时光</a>
           <a class="main-nav-link" href="/archives">足迹</a>
+          <ul>
+              <li ng-repeat="a in a track by $index">121212</li>
+          </ul>
       </nav>
       <nav id="sub-nav">
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
