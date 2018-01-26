@@ -1,23 +1,149 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<head>
+    <meta charset="utf-8">
+
+    <title>高晓伟的Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hexo">
+    <meta property="og:url" content="http://yoursite.com/index.html">
+    <meta property="og:site_name" content="Hexo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hexo">
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
 </head>
+
 <body>
-<div>
-    数组去重
+<div id="container">
+    <div id="wrap">
+        <header id="header">
+            <div id="banner"></div>
+            <div id="header-outer" class="outer">
+                <div id="header-title" class="inner">
+                    <h1 id="logo-wrap">
+                        <a href="/" id="logo">高晓伟的Blog</a>
+                    </h1>
+
+                </div>
+                <div id="header-inner" class="inner">
+                    <nav id="main-nav">
+                        <a id="main-nav-toggle" class="nav-icon"></a>
+
+                        <a class="main-nav-link" href="/">Home</a>
+
+                        <a class="main-nav-link" href="/archives">笔记</a>
+
+                    </nav>
+                    <nav id="sub-nav">
+
+                        <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+
+                        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+                    </nav>
+                    <div id="search-form-wrap">
+                        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+                            <input type="search" name="q" results="0" class="search-form-input" placeholder="Search">
+                            <button type="submit" class="search-form-submit">&#xF002;</button>
+                            <input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="outer">
+            <section id="main">
+
+            <span style="margin: 0 auto">
+                    function aryUnique(ary){<br>
+                    this.ary2=this.ary2||[];<br>
+                    var data=ary.shift();<br>
+                    if(!data){<br>
+                       return this.ary2<br>
+                    }<br>
+                    ary.indexOf(data)==-1&&this.ary2.push(data);<br>
+                    return aryUnique(ary)<br>
+                    }<br>
+            </span>
+
+
+            </section>
+
+            <aside id="sidebar">
+
+
+                <div class="widget-wrap">
+                    <h3 class="widget-title">Archieven</h3>
+
+                    <div class="widget">
+                        <ul class="archive-list">
+                            <li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August
+                                2016</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="widget-wrap">
+                    <h3 class="widget-title">Recente berichten</h3>
+
+                    <div class="widget">
+                        <ul>
+
+                            <li>
+                                <a href="/2016/08/21/git/">中文行吗</a>
+                            </li>
+
+                            <li>
+                                <a href="/2016/08/21/hello-world/">Hello World</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+            </aside>
+
+        </div>
+        <footer id="footer">
+
+            <div class="outer">
+                <div id="footer-info" class="inner">
+                    &copy; 2016 John Doe<br>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <nav id="mobile-nav">
+
+        <a href="/" class="mobile-nav-link">Home</a>
+
+        <a href="/archives" class="mobile-nav-link">Archives</a>
+
+    </nav>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+    <script src="/js/script.js"></script>
+
 </div>
-<textarea name="main" id="1" cols="30" rows="10">
-    function aryUnique(ary){
-    this.ary2=this.ary2||[];
-    var data=ary.shift();
-    if(!data){
-       return this.ary2
-    }
-    ary.indexOf(data)==-1&&this.ary2.push(data);
-    return aryUnique(ary)
-}
-</textarea>
 </body>
 </html>
