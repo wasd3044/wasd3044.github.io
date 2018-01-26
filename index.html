@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/jsNote/JS">数组去重</a>
+      <a class="article-title" href="/jsNote/JS/git/">数组去重</a>
     </h1>
   
 
@@ -83,11 +83,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello    world"></a>hello    world</h2>
+        <h2 id="hello-world"><a href="/jsNote/JS/git/" class="headerlink" title=""></a> function aryUnique(ary){
+            this.ary2=this.ary2||[];
+            var data=ary.shift();
+            if(!data){
+            return this.ary2
+            }
+            ary.indexOf(data)==-1&&this.ary2.push(data);
+            return aryUnique(ary)
+            }</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/git/" data-id="cis3z7v1d00005kfk89atfahw" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/jsNote/JS/git/" data-id="cis3z7v1d00005kfk89atfahw" class="article-share-link">Delen</a>
       
       
     </footer>
