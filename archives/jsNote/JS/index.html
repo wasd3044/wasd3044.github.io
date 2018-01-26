@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    数组去重
+</div>
+<textarea name="main" id="1" cols="30" rows="10">
+    function aryUnique(ary){
+    this.ary2=this.ary2||[];
+    var data=ary.shift();
+    if(!data){
+       return this.ary2
+    }
+    ary.indexOf(data)==-1&&this.ary2.push(data);
+    return aryUnique(ary)
+}
+</textarea>
+</body>
+</html>
