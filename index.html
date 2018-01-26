@@ -14,9 +14,13 @@
     <link rel="icon" href="/favicon.png">
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/style.css">
+    <script src="js/angular/angular.min.js"></script>
 </head>
 <body>
-  <div id="container">
+  <div id="container" ng-app="myApp">
+      <ul>
+          <li ng-repeat="a in a track by $index">121212</li>
+      </ul>
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -136,6 +140,7 @@
   <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
   <script src="fancybox/jquery.fancybox.pack.js"></script>
 <script src="js/script.js"></script>
+      <script src="js/moudel.js"></script>
   </div>
 </body>
 </html>
