@@ -10,7 +10,7 @@ app.controller('header',['$scope',function($scope){
 }]);
 app.controller('mainCtrl',['$scope','$http',function($scope,$http){
     $scope.mainData=[]
-    $http.post('data/main.json').then(function(data){
+    $http.post('https://wasd3044.github.io/data/main.json').then(function(data){
         angular.forEach(data.data,function(_data,_index){
             $scope[_index]=_data;
             if(_data[0]){
@@ -20,12 +20,12 @@ app.controller('mainCtrl',['$scope','$http',function($scope,$http){
     })
 }])
 app.controller('jsNoteCtrl',['$scope','$http',function($scope,$http){
-    $http.post('data/jsNote.json').then(function(data){
+    $http.post('https://wasd3044.github.io/data/jsNote.json').then(function(data){
         $scope.mainData=data.data
     })
 }])
 app.controller('articleCtrl',['$scope','$http',function($scope,$http){
-    $http.post('data/article.json').then(function(data){
+    $http.post('https://wasd3044.github.io/data/article.json').then(function(data){
         $scope.mainData=data.data
     })
 }])
