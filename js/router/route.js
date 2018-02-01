@@ -11,14 +11,14 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$url
             controller:'mainCtrl',
             controllerAs:'vm'
         })
-        .state('jsNote1', {
-            url: '/jsNote1',
+        .state('jsNote', {
+            url: '/jsNote/:id',
             templateUrl: 'views/main.html',
             controller:'jsNoteCtrl',
             controllerAs:'vm'
         })
-        .state('article1', {
-            url: '/article1',
+        .state('article', {
+            url: '/article/:id',
             templateUrl: 'views/main.html',
             controller:'articleCtrl',
             controllerAs:'vm'

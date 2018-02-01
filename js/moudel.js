@@ -10,7 +10,7 @@ app.controller('header',['$scope',function($scope){
 }]);
 app.controller('mainCtrl',['$scope','$http',function($scope,$http){
     $scope.mainData=[]
-       angular.forEach(Adata,function(_data,_index){
+       angular.forEach(data.Adata,function(_data,_index){
             $scope[_index]=_data;
             if(_data[0]){
                 $scope.mainData=$scope.mainData.concat(_data)
@@ -18,12 +18,11 @@ app.controller('mainCtrl',['$scope','$http',function($scope,$http){
         })
 
 }])
-app.controller('jsNoteCtrl',['$scope','$http',function($scope,$http){
-       $scope.mainData=jsNoteData
-
+app.controller('jsNoteCtrl',['$scope','$stateParams',function($scope,$stateParams){
+       $scope.mainData=data.jsNoteData[$stateParams.id]
 }])
-app.controller('articleCtrl',['$scope','$http',function($scope,$http){
-        $scope.mainData=articleData
+app.controller('articleCtrl',['$scope','$stateParams',function($scope,$stateParams){
+        $scope.mainData=data.articleData[$stateParams.id]
 }])
 //app.controller('header',['$scope',function($scope){
 //    $scope.navData=[
