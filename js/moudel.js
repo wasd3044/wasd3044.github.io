@@ -8,7 +8,7 @@ app.controller('header',['$scope',function($scope){
         {url:'/note',name:'足迹',tittle:'笔记'}
     ]
 }]);
-app.controller('mainCtrl',['$scope','$http',function($scope,$http){
+app.controller('mainCtrl',['$scope','$state',function($scope,$state){
     $scope.mainData=[]
        angular.forEach(data.Adata,function(_data,_index){
             $scope[_index]=_data;
@@ -19,10 +19,12 @@ app.controller('mainCtrl',['$scope','$http',function($scope,$http){
 
 }])
 app.controller('jsNoteCtrl',['$scope','$stateParams',function($scope,$stateParams){
-       $scope.mainData=data.jsNoteData[$stateParams.id]
+       $scope.mainData=data.jsNoteData.splice($stateParams.id,1)
+        console.log($scope.mainData)
 }])
 app.controller('articleCtrl',['$scope','$stateParams',function($scope,$stateParams){
-        $scope.mainData=data.articleData[$stateParams.id]
+    $scope.mainData=data.articleData.splice($stateParams.id,1)
+    console.log($stateParams.id)
 }])
 //app.controller('header',['$scope',function($scope){
 //    $scope.navData=[

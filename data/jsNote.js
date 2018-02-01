@@ -1,3 +1,4 @@
+var data=data||{}
 data.jsNoteData=[
   {
     "tittle":"数组去重",
