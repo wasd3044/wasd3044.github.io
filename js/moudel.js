@@ -19,11 +19,11 @@ app.controller('mainCtrl',['$scope','$state',function($scope,$state){
 
 }])
 app.controller('jsNoteCtrl',['$scope','$stateParams',function($scope,$stateParams){
-       $scope.mainData=data.jsNoteData.splice($stateParams.id,1)
+       $scope.mainData=data.jsNoteData[$stateParams.id]
         console.log($scope.mainData)
 }])
 app.controller('articleCtrl',['$scope','$stateParams',function($scope,$stateParams){
-    $scope.mainData=data.articleData.splice($stateParams.id,1)
+    $scope.mainData=data.articleData[$stateParams.id]
     console.log($stateParams.id)
 }])
 //app.controller('header',['$scope',function($scope){
