@@ -9,6 +9,17 @@ app.controller('header',['$scope',function($scope){
     ]
 }]);
 app.controller('mainCtrl',['$scope','$state',function($scope,$state){
+    setInterval(
+        function(){
+            var a=Math.floor((new Date('2018-12-14 00:00:00')-new Date())/1000)
+            var day=Math.floor(a/86400)
+            var h=Math.floor(a%86400/3600)
+            var m=Math.floor(a%86400%3600/60)
+            var s=Math.floor(a%86400%3600%60)
+            logo.innerHTML='还有'+day+'天'+h+'时'+m+'分'+s+'秒'
+        },1000
+    )
+
     $scope.mainData=[]
        angular.forEach(data.Adata,function(_data,_index){
             $scope[_index]=_data;
