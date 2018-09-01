@@ -16,7 +16,8 @@ app.controller('mainCtrl',['$scope','$state',function($scope,$state){
             var h=Math.floor(a%86400/3600)
             var m=Math.floor(a%86400%3600/60)
             var s=Math.floor(a%86400%3600%60)
-            logo.innerHTML='距离？？还有'+day+'天'+h+'时'+m+'分'+s+'秒'
+			var ss=Math.floor(a)
+            logo.innerHTML='距离婚期还有'+day+'天'+h+'时'+m+'分'+s+'秒,共计'+ss+'秒'
         },1000
     )
 
