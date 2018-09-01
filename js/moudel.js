@@ -11,7 +11,7 @@ app.controller('header',['$scope',function($scope){
 app.controller('mainCtrl',['$scope','$state',function($scope,$state){
     setInterval(
         function(){
-            var a=Math.floor((new Date('2018-12-14 00:00:00')-new Date())/1000)
+            var a=Math.floor((new Date('2018/12/14 00:00:00')-new Date())/1000)
             var day=Math.floor(a/86400)
             var h=Math.floor(a%86400/3600)
             var m=Math.floor(a%86400%3600/60)
