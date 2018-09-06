@@ -27,7 +27,7 @@ app.controller('mainCtrl',['$scope','$state',function($scope,$state){
             var h2=Math.floor(c%86400/3600)
             var m2=Math.floor(c%86400%3600/60)
             var s2=Math.floor(c%86400%3600%60)
-            logo.innerHTML='距婚期还有'+day+'天'+h+'时'+m+'分'+s+'秒'+<br/>+'距元旦还有'+day1+'天'+h1+'时'+m1+'分'+s1+'秒'+<br/>+'距元旦还有'+day2+'天'+h2+'时'+m2+'分'+s2+'秒'
+            logo.innerHTML='距婚期还有'+day+'天'+h+'时'+m+'分'+s+'秒'+<br/>+'距元旦还有'+day1+'天'+h1+'时'+m1+'分'+s1+'秒'+<br/>+'距春节还有'+day2+'天'+h2+'时'+m2+'分'+s2+'秒'
         },1000
     )
 
