@@ -17,7 +17,17 @@ app.controller('mainCtrl',['$scope','$state',function($scope,$state){
             var m=Math.floor(a%86400%3600/60)
             var s=Math.floor(a%86400%3600%60)
 			var ss=Math.floor(a)
-            logo.innerHTML='距离婚期还有'+day+'天'+h+'时'+m+'分'+s+'秒,共计'+ss+'秒'
+			var b=Math.floor((new Date('2019/01/01 00:00:00')-new Date())/1000)
+			var day1=Math.floor(b/86400)
+            var h1=Math.floor(b%86400/3600)
+            var m1=Math.floor(b%86400%3600/60)
+            var s1=Math.floor(b%86400%3600%60)
+			var c=Math.floor((new Date('2019/02/05 00:00:00')-new Date())/1000)
+			var day2=Math.floor(c/86400)
+            var h2=Math.floor(c%86400/3600)
+            var m2=Math.floor(c%86400%3600/60)
+            var s2=Math.floor(c%86400%3600%60)
+            logo.innerHTML='距婚期还有'+day+'天'+h+'时'+m+'分'+s+'秒'+<br/>+'距元旦还有'+day1+'天'+h1+'时'+m1+'分'+s1+'秒'+<br/>+'距元旦还有'+day2+'天'+h2+'时'+m2+'分'+s2+'秒'
         },1000
     )
 
