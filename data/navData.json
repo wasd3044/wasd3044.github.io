@@ -1,0 +1,27 @@
+{
+  "myLife":{
+    "mainRouter":{
+      "state": "main",
+      "text": "我的小窝"
+    },
+    "routers":[
+      {
+        "id": 0,
+        "state": "main.road",
+        "text": "一路相随"
+      }, {
+        "id": 1,
+        "state": "main.city",
+        "text": "半城烟沙"
+      }, {
+        "id": 2,
+        "state": "main.love",
+        "text": "一曲相思"
+      }, {
+        "id": 3,
+        "state": "main.life",
+        "text": "一生一世"
+      }
+    ]
+  }
+}

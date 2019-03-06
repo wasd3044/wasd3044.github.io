@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="blogApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+</head>
+<body ng-controller="mainCtrl as vm">
+<nav  class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="{{vm.mainRouter.state}}">{{vm.mainRouter.text}}</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li ng-if="!router.sublist" ng-repeat="router in vm.routers track by router.id"><a ui-sref="{{router.state}}">{{router.text}}</a></li>
+                <li ng-if="router.sublist" class="dropdown" ng-repeat="router in vm.routers track by router.id">
+                    <a ui-sref="{{router.state}}" class="dropdown-toggle" data-toggle="dropdown">
+                        {{router.text}}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="item in router track by item.id" ng-class="{'divider': item.divider}">
+                            <a ng-if="!item.divider" ui-sref="{{item.state}}">{{router.text}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div ui-view></div>
+</body>
+</html>
+<script type="application/javascript" src="vendor/angular.min.js"></script>
+<script type="application/javascript" src="vendor/jquery.min.js"></script>
+<script type="application/javascript" src="vendor/angular-ui-router.js"></script>
+<script type="application/javascript" src="vendor/require.js"></script>
+<script type="application/javascript" src="vendor/angular-couch-potato.js"></script>
+<script type="application/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+<script type="application/javascript" src="component/app.js"></script>
+<script type="application/javascript" src="component/config.js"></script>
+<script type="application/javascript" src="directives/setting.js"></script>
