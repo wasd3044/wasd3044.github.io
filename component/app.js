@@ -3,16 +3,24 @@ window.blogApp = angular.module('blogApp', [
     'scs.couch-potato'
 ]);
 blogApp.controller('mainCtrl', mainCtrl);
-mainCtrl.$inject = ['$scope','$$http'];
+mainCtrl.$inject = ['$scope', '$$http','$state'];
 
-function mainCtrl($scope,$$http) {
+function mainCtrl($scope, $$http,$state) {
     var vm = this;
+    var index = 0;
+    var changetype=function(value){
+        vm.type =  value[index].name;
+        vm.mainRouter = value[index].mainRouter;
+        vm.routers = value[index].routers
+    }
     $$http.get('data/navData.json').then(function (value) {
-        vm.mainRouter=value.myLife.mainRouter
-        vm.routers=value.myLife.routers
+        vm.allData = value;
+        changetype(vm.allData)
     });
-    $scope.$on('changeAll', function (event,data) {
-        vm.mainRouter = data.mainRouter;
-        vm.routers = data.routers
-    })
+    vm.changeType = function () {
+        index =(index+1)%vm.allData.length;
+        $state.go(vm.allData[index].mainRouter.state);
+        changetype(vm.allData)
+    }
+
 }
