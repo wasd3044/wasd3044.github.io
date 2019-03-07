@@ -3,13 +3,13 @@ window.blogApp = angular.module('blogApp', [
     'scs.couch-potato'
 ]);
 blogApp.controller('mainCtrl', mainCtrl);
-mainCtrl.$inject = ['$scope', '$$http','$state'];
+mainCtrl.$inject = ['$scope', '$$http', '$state'];
 
-function mainCtrl($scope, $$http,$state) {
+function mainCtrl($scope, $$http, $state) {
     var vm = this;
     var index = 0;
-    var changetype=function(value){
-        vm.type =  value[index].name;
+    var changetype = function (value) {
+        vm.type = value[index].name;
         vm.mainRouter = value[index].mainRouter;
         vm.routers = value[index].routers
     }
@@ -18,9 +18,8 @@ function mainCtrl($scope, $$http,$state) {
         changetype(vm.allData)
     });
     vm.changeType = function () {
-        index =(index+1)%vm.allData.length;
-        $state.go(vm.allData[index].mainRouter.state);
+        index = (index + 1) % vm.allData.length;
+        $state.go(vm.allData[index].mainRouter.state, {author: 'sen'});
         changetype(vm.allData)
     }
-
 }
