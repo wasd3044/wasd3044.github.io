@@ -1,5 +1,5 @@
-[
-  {
+{
+  "main":{
     "name": "生活",
     "mainRouter": {
       "state": "main",
@@ -28,7 +28,7 @@
       }
     ]
   },
-  {
+  "work":{
     "name": "工作",
     "mainRouter": {
       "state": "work",
@@ -57,4 +57,5 @@
       }
     ]
   }
-]
+}
+

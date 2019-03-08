@@ -1,6 +1,6 @@
 define(function(angular,main) {
     'use strict';
-    blogApp.registerController('bodyCtrl',function($scope){
+    blogApp.registerController('bodyCtrl',function($scope,$stateParams,$state){
 
     });
 });

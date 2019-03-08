@@ -1,0 +1,15 @@
+<nav  class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-state="vm.mainRouter.state">{{vm.mainRouter.text}}</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a ng-state="work.code.js">js</a></li>
+                <li><a ng-state="work.code.node">node</a></li>
+                <li><a ng-state="work.code.views">views</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div ui-view=""></div>

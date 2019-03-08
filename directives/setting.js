@@ -36,13 +36,3 @@ blogApp.directive('ngState', function ($state) {
         }
     }
 });
-blogApp.run(['$rootScope', '$state', function ($rootScope, $state) {
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        if (!toParams.author ) {
-            if(toState.name.indexOf('.') !== -1){
-                event.preventDefault();
-                $state.go(fromState.name || 'main', fromParams)
-            }
-        }
-    })
-}]);
