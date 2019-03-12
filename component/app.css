@@ -6,3 +6,6 @@
 .navbar-nav li{
     cursor: pointer;
 }
+body{
+    font-size: 16px;
+}

@@ -1,10 +1,12 @@
-blogApp.service('$$http', function ($http, $q) {
-    var deferred = $q.defer();
-    var get = function (url) {
-        $http.get(url).then(function (value) {
-            deferred.resolve(value.data);
-        });
-        return deferred.promise
+blogApp.service('$$http', function ($http) {
+    var url={
+        main:'data/navData.json',
+        road:'data/life/road.json'
+    }
+    var get = function (type) {
+        return $http.get(url[type]).then(function(value){
+            return value.data
+        })
     };
     return {
         get: get
@@ -36,3 +38,26 @@ blogApp.directive('ngState', function ($state) {
         }
     }
 });
+blogApp.directive("playAudio",function(){
+    return {
+        restrict: "E",
+        scope:{
+            ngSrc:"="
+        },
+        link: function(scope, element, attrs){
+
+            var stopWatch = scope.$watch("ngSrc",function(newData,oldData){
+                if(newData != undefined){
+                    var audio = angular.element("<audio controls>");
+                    audio.attr({
+                        "src": scope.ngSrc,
+                        "class": $(element).attr('class')
+                    });
+                    $(element).replaceWith(audio);
+
+                    stopWatch();
+                }
+            })
+        }
+    }
+})

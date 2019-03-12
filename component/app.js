@@ -14,7 +14,7 @@ function mainCtrl($scope, $$http, $state,$stateParams) {
         vm.mainRouter = vm.allData[index].mainRouter;
         vm.routers = vm.allData[index].routers
     };
-    $$http.get('data/navData.json').then(function (value) {
+    $$http.get('main').then(function (value) {
         vm.allData = value;
         changetype()
     });

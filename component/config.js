@@ -11,7 +11,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
             'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
         },
         views: {
-            '': {
+            'mainView': {
                 templateUrl: './component/dashboard/body.html',
                 css: './component/dashboard/body.css',
                 controller: 'bodyCtrl',
@@ -22,13 +22,13 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
         .state("main.road", {
             url: '/road',
             resolve: {
-                'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
+                'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/road/roadCtrl'])
             },
             views: {
-                '': {
-                    templateUrl: './component/dashboard/body.html',
-                    css: './component/dashboard/body.css',
-                    controller: 'bodyCtrl',
+                'lifeView': {
+                    templateUrl: './component/life/road/road.html',
+                    css: './component/life/road/road.css',
+                    controller: 'roadCtrl',
                     controllerAs: 'vm'
                 }
             }
@@ -39,7 +39,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -53,7 +53,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -67,7 +67,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -81,7 +81,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -95,7 +95,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -110,7 +110,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -124,7 +124,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
@@ -138,7 +138,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
             },
             views: {
-                '': {
+                'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
