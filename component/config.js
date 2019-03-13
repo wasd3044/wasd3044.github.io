@@ -4,7 +4,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
     // blogApp.registerFilter = $filterProvider.register;
     blogApp.registerFactory = $provide.factory;
     blogApp.registerService = $provide.service;
-    $urlRouterProvider.otherwise("/main");
+    $urlRouterProvider.otherwise("/main/road");
     $stateProvider.state("main", {
         url: '/main',
         resolve: {
