@@ -43,6 +43,8 @@ blogApp.directive("playAudio", function ($sce) {
         restrict: "E",
         scope: {
             ngSrc: "=",
+            autoPlay: '@?',
+            circle: "@?"
         },
         link: function (scope, element, attrs) {
 
@@ -50,47 +52,71 @@ blogApp.directive("playAudio", function ($sce) {
                 if (newData != undefined) {
                     var time = $("<span></span>");
                     var button = $("<button class='btn btn-primary'>试听</button>");
+                    var index = 0;
                     var ele = "<div id='playPause'>";
                     for (var i = 0; i < scope.ngSrc.length; i++) {
                         ele += "<audio id='audioTag" + i + "' src='" + scope.ngSrc[i] + "'></audio>";
                     }
                     ele += "</div>";
-
                     var content = angular.element(ele);
                     content.attr({
                         "class": $(element).attr('class')
                     });
                     $(element).replaceWith(content);
-                    var audio = $(content.find('audio'))[0];
-                    if(!attrs.tittle){
-                        $(content).append(time);
-                    }
+                    var audio = $(content.find("audio"))[0];
+                    $(content).append(time);
                     $(content).append(button);
                     button.on('click', function () {
                         //改变暂停/播放icon
+                        scope.$emit('playIndex',index);
                         if (audio.paused) {
                             audio.play();
+                            button.html("暂停")
                         } else {
                             audio.pause();
+                            button.html("播放")
                         }
                     });
-                    // 监听音频播放时间并更新进度条
-                    audio.addEventListener('timeupdate', function () {
-                        updateProgress(audio);
-                    }, false);
+                    var prve = function () {
+                        if(scope.circle){
+                            index = (index +scope.ngSrc.length-1)%scope.ngSrc.length;
+                        }else{
+                            index = index - 1;
+                        }
+                        scope.$emit('playIndex',index);
+                        audio = $(content.find("audio"))[index];
+                        audio.play()
+                    };
+                    var nextSibling = function () {
+                        if(scope.circle){
+                            index = (index +scope.ngSrc.length+1)%scope.ngSrc.length;
+                        }else{
+                            index = index + 1;
+                        }
+                        scope.$emit('playIndex',index);
+                        audio = $(content.find("audio"))[index];
+                        audio.play();
+                        timeupdate();
+                    };
 
-                    /**
-                     * 更新进度条与当前播放时间
-                     * @param {object} audio - audio对象
-                     */
-                    function updateProgress(audio) {
-                        time.html(transTime(audio.currentTime)+"/"+transTime(audio.duration));
+                    function timeupdate() {
+                        // 监听音频播放时间并更新进度条
+                        audio.addEventListener('timeupdate', function () {
+                            updateProgress(audio);
+                            if (scope.autoPlay) {
+                                if (audio.currentTime === audio.duration) {
+                                    nextSibling()
+                                }
+                            }
+                        }, false);
                     }
 
-                    /**
-                     * 音频播放时间换算
-                     * @param {number} value - 音频当前播放时间，单位秒
-                     */
+                    timeupdate();
+
+                    function updateProgress(audio) {
+                        time.html(transTime(audio.currentTime) + "/" + transTime(audio.duration));
+                    }
+
                     function transTime(value) {
                         var time = "";
                         var h = parseInt(value / 3600);
@@ -106,11 +132,6 @@ blogApp.directive("playAudio", function ($sce) {
                         return time;
                     }
 
-                    /**
-                     * 格式化时间显示，补零对齐
-                     * eg：2:4  -->  02:04
-                     * @param {string} value - 形如 h:m:s 的字符串
-                     */
                     function formatTime(value) {
                         var time = "";
                         var s = value.split(':');

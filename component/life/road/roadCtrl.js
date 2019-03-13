@@ -1,11 +1,22 @@
 define(function () {
     'use strict';
-    blogApp.registerController('roadCtrl', function ($$http, $sce) {
+    blogApp.registerController('roadCtrl', function ($$http, $scope) {
         var vm = this;
-        vm.allListen=[];
+        var allListen = [];
+        var songs =[];
         $$http.get('road').then(function (value) {
             vm.songs = value.songs;
-            vm.allListen.push(vm.songs.listen)
+            angular.forEach(value.songs, function (item) {
+                allListen.push(item.listen[0]);
+                songs.push(item.name)
+            });
+            return allListen
+        }).then(function (value) {
+            vm.allListen = value
         });
+        $scope.$on('playIndex', function (event, data) {
+            $scope.playIndex = "当前播放:"+songs[data];
+            $scope.$apply()
+        })
     });
 });

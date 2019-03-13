@@ -3,10 +3,14 @@
     <p>
         喜欢的歌
     </p>
+    <p>
+        {{playIndex}}
+    </p>
+    <play-audio controls auto-play="true" circle="true" ng-src="vm.allListen" class="roadAudio"></play-audio>
     <ul ng-repeat="song in vm.songs track by $index">
         <li>歌名：{{song.name}}</li>
         <li>演唱者：{{song.author}}</li>
-        <play-audio controls ng-src="song.listen" class="roadAudio"></play-audio>
+        <play-audio controls auto-play="true" circle="true" ng-src="song.listen" class="roadAudio"></play-audio>
     </ul>
 
 </div>
