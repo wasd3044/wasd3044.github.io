@@ -44,7 +44,8 @@ blogApp.directive("playAudio", function ($sce) {
         scope: {
             ngSrc: "=",
             autoPlay: '@?',
-            circle: "@?"
+            circle: "@?",
+            ngName: '='
         },
         link: function (scope, element, attrs) {
 
@@ -65,10 +66,9 @@ blogApp.directive("playAudio", function ($sce) {
                     $(element).replaceWith(content);
                     var audio = $(content.find("audio"))[0];
                     $(content).append(time);
-                    $(content).append(button);
                     button.on('click', function () {
                         //改变暂停/播放icon
-                        scope.$emit('playIndex',index);
+                        scope.$emit('playIndex', index);
                         if (audio.paused) {
                             audio.play();
                             button.html("暂停")
@@ -77,27 +77,53 @@ blogApp.directive("playAudio", function ($sce) {
                             button.html("播放")
                         }
                     });
+
                     var prve = function () {
-                        if(scope.circle){
-                            index = (index +scope.ngSrc.length-1)%scope.ngSrc.length;
-                        }else{
+                        if (scope.circle) {
+                            index = (index + scope.ngSrc.length - 1) % scope.ngSrc.length;
+                        } else {
                             index = index - 1;
                         }
-                        scope.$emit('playIndex',index);
-                        audio = $(content.find("audio"))[index];
-                        audio.play()
-                    };
-                    var nextSibling = function () {
-                        if(scope.circle){
-                            index = (index +scope.ngSrc.length+1)%scope.ngSrc.length;
-                        }else{
-                            index = index + 1;
-                        }
-                        scope.$emit('playIndex',index);
+                        scope.$emit('playIndex', index);
                         audio = $(content.find("audio"))[index];
                         audio.play();
                         timeupdate();
                     };
+                    var nextSibling = function () {
+                        if (scope.circle) {
+                            index = (index + scope.ngSrc.length + 1) % scope.ngSrc.length;
+                        } else {
+                            index = index + 1;
+                        }
+                        scope.$emit('playIndex', index);
+                        audio = $(content.find("audio"))[index];
+                        audio.play();
+                        timeupdate();
+                    };
+                    var downloadSong = function () {
+                        window.open(scope.ngSrc,'_blank')
+                    };
+                    if (scope.ngSrc.length > 1) {
+                        var prevbtn = $("<button class='btn btn-primary'>上一曲</button>");
+                        var nextbtn = $("<button class='btn btn-primary'>下一曲</button>");
+                        prevbtn.bind('click', function () {
+                            audio.pause();
+                            prve()
+                        });
+                        nextbtn.bind('click', function () {
+                            audio.pause();
+                            nextSibling()
+                        });
+                        var cont = $('<div class="btnContent"></div>')
+                        $(content).append(cont);
+                        $(cont).append(prevbtn);
+                        $(cont).append(button);
+                        $(cont).append(nextbtn);
+                    } else {
+                        var download = $("<button class='btn btn-primary downloadBtn'>下载" + scope.ngName + "</button>")
+                        $(content).append(download);
+                        download.bind('click', downloadSong)
+                    }
 
                     function timeupdate() {
                         // 监听音频播放时间并更新进度条
@@ -144,6 +170,25 @@ blogApp.directive("playAudio", function ($sce) {
 
                         return time;
                     }
+                }
+                var download = function (url) {
+                    $.ajax({
+                        type: "get",
+                        async: true,
+                        url: url,
+                        dataType: "jsonp",
+                        jsonp: "callbackparam",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+                        jsonpCallback: "success_jsonpCallback",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                        success: function (json) {
+
+                            $("#kecon>img[random='" + json[0].random + "']").attr("src") = json[0].name;
+
+                        },
+                        error: function () {
+                            alert('fail');
+                        }
+
+                    });
                 }
             });
         }

@@ -10,7 +10,7 @@
     <ul ng-repeat="song in vm.songs track by $index">
         <li>歌名：{{song.name}}</li>
         <li>演唱者：{{song.author}}</li>
-        <play-audio controls auto-play="true" circle="true" ng-src="song.listen" class="roadAudio"></play-audio>
+        <play-audio controls ng-name="song.name" auto-play="true" circle="true" ng-src="song.listen" class="roadAudio"></play-audio>
     </ul>
 
 </div>
