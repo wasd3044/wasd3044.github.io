@@ -16,14 +16,19 @@
       "listen":["http://www.ytmp3.cn/down/57630.mp3"]
     },
     {
-      "name":"简单爱",
-      "author":"周杰伦",
-      "listen":["http://www.ytmp3.cn/down/32595.mp3"]
-    },
-    {
       "name":"红昭愿",
       "author":"音阙诗听",
       "listen":["http://www.ytmp3.cn/down/44577.mp3"]
+    },
+    {
+      "name":"黎明前的黑暗",
+      "author":"书岩&郝琪力",
+      "listen":["http://www.ytmp3.cn/down/58661.mp3"]
+    },
+    {
+      "name":"纸短情长",
+      "author":"洛天依",
+      "listen":["http://www.ytmp3.cn/down/53021.mp3"]
     }
   ]
 }
