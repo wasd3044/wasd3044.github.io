@@ -2,7 +2,7 @@
   "main":{
     "name": "生活",
     "mainRouter": {
-      "state": "main",
+      "state": "myapp",
       "text": "我的小窝"
     },
     "routers": [
@@ -18,12 +18,12 @@
       },
       {
         "id": 2,
-        "state": "main.love",
+        "state": "main.life",
         "text": "一曲相思"
       },
       {
         "id": 3,
-        "state": "main.life",
+        "state": "main.love",
         "text": "一生一世"
       }
     ]

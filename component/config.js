@@ -5,7 +5,20 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
     blogApp.registerFactory = $provide.factory;
     blogApp.registerService = $provide.service;
     $urlRouterProvider.otherwise("/main/road");
-    $stateProvider.state("main", {
+    $stateProvider.state("myapp", {
+        url: '/myapp',
+        resolve: {
+            'dummy': $couchPotatoProvider.resolveDependencies(['./component/myapp/myappCtrl'])
+        },
+        views: {
+            'mainView': {
+                templateUrl: './component/myapp/myapp.html',
+                controller: 'myappCtrl',
+                controllerAs: 'vm'
+            }
+        }
+    })
+        .state("main", {
         url: '/main',
         resolve: {
             'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
@@ -50,13 +63,12 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
         .state("main.love", {
             url: '/love',
             resolve: {
-                'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
+                'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/love/loveCtrl'])
             },
             views: {
                 'mainView@': {
-                    templateUrl: './component/dashboard/body.html',
-                    css: './component/dashboard/body.css',
-                    controller: 'bodyCtrl',
+                    templateUrl: './component/life/love/love.html',
+                    controller: 'loveCtrl',
                     controllerAs: 'vm'
                 }
             }

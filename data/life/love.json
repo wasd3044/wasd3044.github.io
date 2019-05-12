@@ -1,0 +1,22 @@
+{
+  "buys":[
+    {
+      "name":"淘宝",
+      "links":"https://www.taobao.com/",
+      "img": "http://img.alicdn.com/tfs/TB1_uT8a5ERMeJjSspiXXbZLFXa-143-59.png",
+      "height": "59"
+    },
+     {
+      "name":"京东",
+      "links":"https://www.jd.com",
+      "img": "http://img1.360buyimg.com/da/jfs/t1/17098/23/11599/160999/5c90a484E27dd5514/7287f0d182775168.gif",
+       "height": "170"
+    },
+    {
+      "name":"唯品会",
+      "links":"https://www.vip.com/",
+      "img": "http://b.appsimg.com/upload/momin/2019/02/21/133/1550737570483.png",
+      "height": "120"
+    }
+  ]
+}

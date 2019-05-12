@@ -1,7 +1,8 @@
 blogApp.service('$$http', function ($http) {
     var url = {
         main: 'data/navData.json',
-        road: 'data/life/road.json'
+        road: 'data/life/road.json',
+        love: 'data/life/love.json'
     }
     var get = function (type) {
         return $http.get(url[type]).then(function (value) {
