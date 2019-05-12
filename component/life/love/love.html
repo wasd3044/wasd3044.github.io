@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="component/life/love/love.css">
+<div class="title" ng-if="vm.buys">
+    <span>买买买</span>
+</div>
 <ul>
     <li class="loveli" ng-repeat="buy in vm.buys" ng-click="vm.stateTo(buy)" title="{{buy.name}}"><img src="{{buy.img}}" height="{{buy.height}}" alt=""></li>
 </ul>

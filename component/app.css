@@ -9,3 +9,13 @@
 body{
     font-size: 16px;
 }
+.htmlTitle{
+    background: #4B0082;
+    border-color: #4B0082;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar-brand{
+    color: #fff
+}

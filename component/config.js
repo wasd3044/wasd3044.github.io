@@ -61,7 +61,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
             }
         })
         .state("main.love", {
-            url: '/love',
+            url: '/love?zjz',
             resolve: {
                 'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/love/loveCtrl'])
             },

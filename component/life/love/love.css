@@ -1,4 +1,4 @@
-.loveli{
+.loveli {
     cursor: pointer;
     list-style: none;
     display: inline-block;
@@ -7,7 +7,9 @@
     line-height: 170px;
     text-align: center;
     margin: 20px;
+    opacity: 0.7;
 }
+
 body {
     position: relative;
     width: 100%;
@@ -15,4 +17,17 @@ body {
     min-height: 1080px;
     background-image: url("./img/lifebg.jpg");
     background-size: 100% 110%;
+}
+
+.title {
+    margin-left: 40px;
+    margin-bottom: -55px;
+}
+
+.title span {
+    font-family: 楷体;
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#00ffff), to(#ffffff));
+    -webkit-background-clip: text; /*必需加前缀 -webkit- 才支持这个text值 */
+    -webkit-text-fill-color: transparent; /*text-fill-color会覆盖color所定义的字体颜色： */
+    font-size: 40px;
 }
