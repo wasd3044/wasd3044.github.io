@@ -18,5 +18,8 @@ define(function () {
             $scope.playIndex = "当前播放:"+songs[data];
             $scope.$apply()
         })
+        vm.jumpto= function (index) {
+            $scope.$broadcast('lisindex',index)
+        }
     });
 });

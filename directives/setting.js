@@ -78,7 +78,16 @@ blogApp.directive("playAudio", function ($sce) {
                             button.html("播放")
                         }
                     });
-
+                    scope.$on('lisindex',function (event,data) {
+                        $(content.find("audio")).each(function (index,item) {
+                            item.pause()
+                            item.currentTime = 0
+                        });
+                        scope.$emit('playIndex', data);
+                        audio = $(content.find("audio"))[data];
+                        audio.play();
+                        timeupdate();
+                    });
                     var prve = function () {
                         if (scope.circle) {
                             index = (index + scope.ngSrc.length - 1) % scope.ngSrc.length;
@@ -120,10 +129,6 @@ blogApp.directive("playAudio", function ($sce) {
                         $(cont).append(prevbtn);
                         $(cont).append(button);
                         $(cont).append(nextbtn);
-                    } else {
-                        var download = $("<button class='btn btn-primary downloadBtn'>下载" + scope.ngName + "</button>")
-                        $(content).append(download);
-                        download.bind('click', downloadSong)
                     }
 
                     function timeupdate() {

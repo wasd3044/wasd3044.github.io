@@ -31,3 +31,7 @@ body {
     -webkit-text-fill-color: transparent; /*text-fill-color会覆盖color所定义的字体颜色： */
     font-size: 40px;
 }
+.htmlTitle{
+    background: #4B0082;
+    border-color: #4B0082;
+}

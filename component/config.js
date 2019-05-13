@@ -53,7 +53,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
             },
             views: {
                 'mainView@': {
-                    templateUrl: './component/dashboard/body.html',
+                    templateUrl: './component/life/city/city.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
                     controllerAs: 'vm'
@@ -80,7 +80,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
             },
             views: {
                 'mainView@': {
-                    templateUrl: './component/dashboard/body.html',
+                    templateUrl: './component/life/life/life.html',
                     css: './component/dashboard/body.css',
                     controller: 'bodyCtrl',
                     controllerAs: 'vm'
