@@ -2,8 +2,9 @@ blogApp.service('$$http', function ($http) {
     var url = {
         main: 'data/navData.json',
         road: 'data/life/road.json',
-        love: 'data/life/love.json'
-    }
+        love: 'data/life/love.json',
+        note: 'data/work/note.json'
+    };
     var get = function (type) {
         return $http.get(url[type]).then(function (value) {
             return value.data

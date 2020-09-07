@@ -1,0 +1,35 @@
+{
+  "note": {
+    "Permutation": {
+      "lable": "全排列",
+      "function": [
+        "function sort(a, b, n = 0) {\n\t if (a[n] === b[n]) {\n\t\t  return sort(a, b, n + 1)\n\t }\n\t return a[n] - b[n]\n}\n\nfunction Permutation(li, i = 1, arr = [[]]) {\n\t if (i > li) {\n\t\t  return arr\n\t }\n\t let array = []\n\t for (var n = 0; n <arr.length; n++) {\n\t\t  for (var j = arr[n].length; j >=0; j--) {\n\t\t\t\tvar b = arr[n].slice()\n\t\t\t\tb.splice(j, 0, i)\n\t\t\t\tarray.push(b)\n\t\t  }\n\t }\n\t return Permutation(li, i + 1, array).sort(sort)\n}",
+        "function show(arr) {\n\t console.log(arr)\n}\nfunction perm(n) {\n\t var arr=[]\n\t for(var i=1;i<=n;i++){\n\t\t  arr.push(i)\n\t }\n\t (function fn(source, result) {\n\t\t  if (source.length == 0)\n\t\t\t\tshow(result);\n\t\t  else\n\t\t\t\tfor (var i = 0; i < source.length; i++)\n\t\t\t\t\t fn(source.slice(0, i).concat(source.slice(i + 1)), result.concat(source[i]));\n\t })(arr, []);\n}"
+      ]
+    },
+    "Fibonacci ": {
+      "lable": "兔子序列",
+      "function": [
+        "function f(n, a1 = 1, a2 = 1) {\n\t if (n <= 1) {return a1};\n\t return f(n-1, a2, a1 + a2);\n}\nconsole.log(f(1450));"
+      ]
+    },
+    "textOverFlow": {
+      "lable": "省略号",
+      "function": [
+        "text-overflow: -o-ellipsis-lastline;\n\t\t\t\toverflow: hidden;\n\t\t\t\ttext-overflow: ellipsis;\n\t\t\t\tdisplay: -webkit-box;\n\t\t\t\t-webkit-line-clamp: 2;\n\t\t\t\t-webkit-box-orient: vertical;"
+      ]
+    },
+    "radialGradient": {
+      "lable": "同心圆",
+      "function": [
+        "width: 15px;\nheight: 15px;\nborder-radius: 100%;\nbackground-image:radial-gradient(7px,#00A4FF 50%,#fff 75%,#00A4FF 94%)"
+      ]
+    },
+    "circle": {
+      "lable": "椭圆运动轨迹",
+      "function": [
+        "left:450+(Math.sin(deg)*500),\ntop: 70+(Math.sin(deg+(Math.PI/2))*188)\n450：圆心坐标（需要根据图片大小调节）\n\n70：圆心坐标（需要根据图片大小调节）\n\n500：长半径\n\n188：短半径\n\ndeg：角度值一圈为Math.PI*2"
+      ]
+    }
+  }
+}

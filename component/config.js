@@ -90,13 +90,13 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
         .state("work", {
             url: '/work',
             resolve: {
-                'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
+                'dummy': $couchPotatoProvider.resolveDependencies(['./component/work/bodyCtrl'])
             },
             views: {
                 'mainView@': {
                     templateUrl: './component/dashboard/body.html',
                     css: './component/dashboard/body.css',
-                    controller: 'bodyCtrl',
+                    controller: 'workBodyCtrl',
                     controllerAs: 'vm'
                 }
             }
@@ -104,13 +104,13 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
         .state("work.note", {
             url: '/note',
             resolve: {
-                'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
+                'dummy': $couchPotatoProvider.resolveDependencies(['./component/work/note/noteCtrl'])
             },
             views: {
                 'mainView@': {
-                    templateUrl: './component/dashboard/body.html',
-                    css: './component/dashboard/body.css',
-                    controller: 'bodyCtrl',
+                    templateUrl: './component/work/note/note.html',
+                    css: './component/work/note/note.css',
+                    controller: 'noteCtrl',
                     controllerAs: 'vm'
                 }
             }
@@ -133,13 +133,13 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
         .state("work.design", {
             url: '/design',
             resolve: {
-                'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
+                'dummy': $couchPotatoProvider.resolveDependencies(['./component/work/design/designCtrl'])
             },
             views: {
                 'mainView@': {
-                    templateUrl: './component/dashboard/body.html',
-                    css: './component/dashboard/body.css',
-                    controller: 'bodyCtrl',
+                    templateUrl: './component/work/design/design.html',
+                    css: './component/work/design/design.css',
+                    controller: 'designCtrl',
                     controllerAs: 'vm'
                 }
             }

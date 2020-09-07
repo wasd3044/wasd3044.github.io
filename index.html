@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="component/app.css">
 </head>
 <body ng-controller="mainCtrl as vm">
-<nav  class="navbar navbar-default htmlTitle" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" ng-state="vm.mainRouter.state">{{vm.mainRouter.text}}</a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav">
-                <li ng-if="!router.sublist" ng-repeat="router in vm.routers track by router.id"><a ng-state="router.state">{{router.text}}</a></li>
-                <li ng-if="router.sublist" class="dropdown" ng-repeat="router in vm.routers track by router.id">
-                    <a ng-state="router.state" class="dropdown-toggle" data-toggle="dropdown">
-                        {{router.text}}
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="item in router track by item.id" ng-class="{'divider': item.divider}">
-                            <a ng-if="!item.divider" ng-state="item.state">{{router.text}}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<nav ng-if="vm.isShowTitle" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">{{vm.mainRouter.text}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active" ng-if="!router.sublist" ng-repeat="router in vm.routers track by router.id">
+                <a class="nav-link" href="#" ng-state="router.state">{{router.text}}</a>
+            </li>
+            <li class="nav-item dropdown" ng-if="router.sublist" ng-repeat="router in vm.routers track by router.id">
+                <a class="nav-link dropdown-toggle" ng-state="router.state" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{router.text}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                    <a class="dropdown-item" href="#" ng-repeat="item in router track by item.id" ng-state="item.state">{{item.text}}</a>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>
-<button class="btn btn-primary chTypeButton" ng-click="vm.changeType()">切换模式/{{vm.type}}</button>
+<button ng-if="vm.isShowTitle" class="btn btn-primary chTypeButton" ng-click="vm.changeType()">切换模式/{{vm.type}}</button>
 <div ui-view="mainView" class="mainBody"></div>
 </body>
 </html>
@@ -39,7 +37,9 @@
 <script type="application/javascript" src="vendor/angular-ui-router.js"></script>
 <script type="application/javascript" src="vendor/require.js"></script>
 <script type="application/javascript" src="vendor/angular-couch-potato.js"></script>
-<script type="application/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script type="application/javascript" src="component/app.js"></script>
 <script type="application/javascript" src="component/config.js"></script>
 <script type="application/javascript" src="directives/setting.js"></script>

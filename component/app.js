@@ -22,5 +22,9 @@ function mainCtrl($scope, $$http, $state,$stateParams) {
         index = type[(type.indexOf(index)+1)%type.length];
         $state.go(vm.allData[index].mainRouter.state, {author: 'sen'});
         changetype()
+    };
+    vm.isShowTitle = true;
+    $scope.changeShowTitle = function (bol) {
+        vm.isShowTitle = bol;
     }
 }

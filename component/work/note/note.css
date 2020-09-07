@@ -1,0 +1,21 @@
+body{
+    background: #ddd;
+}
+.noteBody {
+    position: relative;
+    max-width: 1200px;
+    min-height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+textarea {
+    width: 100px;
+    outline: 0;
+    border: 1px solid #397EFF;
+    font-size: 13px;
+    overflow-x: hidden;
+    /*-webkit-user-modify: read-write-plaintext-only;*/
+}
+/*[contentEditable=true]:empty:not(:focus):before {*/
+/*    content: attr(data-text);*/
+/*}*/

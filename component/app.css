@@ -9,19 +9,17 @@
 body{
     font-size: 16px;
 }
-.htmlTitle{
-    background: #4B0082;
-    border-color: #4B0082;
+.bg-light {
+    background: none !important;
+    color: #fff;
+    font-weight: 700;
 }
-.navbar-default .navbar-nav>li>a {
+.navbar-light .navbar-brand {
     color: #fff;
 }
-.navbar-default .navbar-nav>li>a:hover {
-    color: #fff;
+.navbar-light .navbar-brand:hover {
+    color: #ddd;
 }
-.navbar-brand:hover {
-    color: #fff !important;
-}
-.navbar-brand{
-    color: #fff !important;
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color:#fff;
 }
