@@ -9,11 +9,15 @@ body{
     text-align: center;
 }
 textarea {
-    width: 100px;
+    min-width: 800px;
     outline: 0;
     border: 1px solid #397EFF;
     font-size: 13px;
     overflow-x: hidden;
+    line-height: 22px;
+    resize:none;
+    padding: 30px
+    /*display: block;*/
     /*-webkit-user-modify: read-write-plaintext-only;*/
 }
 /*[contentEditable=true]:empty:not(:focus):before {*/

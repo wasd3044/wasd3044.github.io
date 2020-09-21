@@ -7,7 +7,7 @@
     <div ng-repeat="note in vm.notes track by $index">
         <h1>{{note.lable}}</h1>
         <div>
-            <textarea ng-repeat="value in note.function" >{{value}}</textarea>
+            <textarea ng-style="note.style" ng-repeat="value in note.function"  disabled>{{value}}</textarea>
         </div>
     </div>
 </div>
