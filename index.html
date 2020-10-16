@@ -28,6 +28,7 @@
         </ul>
     </div>
 </nav>
+<button  class="btn btn-primary chTypeButton systembutton"  ng-click="vm.changeSystem()">angular10</button>
 <button ng-if="vm.isShowTitle" class="btn btn-primary chTypeButton" ng-click="vm.changeType()">切换模式/{{vm.type}}</button>
 <div ui-view="mainView" class="mainBody"></div>
 </body>

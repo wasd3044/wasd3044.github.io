@@ -23,6 +23,13 @@ function mainCtrl($scope, $$http, $state,$stateParams) {
         $state.go(vm.allData[index].mainRouter.state, {author: 'sen'});
         changetype()
     };
+    if(window.location.pathname === 'angular10') {
+      vm.changeSystem();
+    }
+    vm.changeSystem = function () {
+      history.replaceState("", "", window.location.origin+window.location.pathname+'blog');
+      window.location.href = window.location.origin+window.location.pathname;
+    };
     vm.isShowTitle = true;
     $scope.changeShowTitle = function (bol) {
         vm.isShowTitle = bol;
