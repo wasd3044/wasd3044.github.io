@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="component/life/clock/clock.css">
+<div class="clockContent">
+    <div class="circle">
+      <div class="centerLine"></div>
+      <div class="year">
+        <span>{{vm.years}}</span>
+      </div>
+      <div class="year month month-12-{{vm.monthClass}}" id="month">
+        <span ng-repeat="month in vm.month" ng-style="month.style">{{month.value}}</span>
+      </div>
+      <div class="year day date-30-{{vm.dateClass}}" id="day">
+        <span ng-repeat="day in vm.day" ng-style="day.style">{{day.value}}</span>
+      </div>
+      <div class="mint day mint-60-{{vm.mintClass}}" id="mint">
+        <span ng-repeat="mint in vm.mint" ng-style="mint.style">{{mint.value}}</span>
+      </div>
+      <div class="second day sc-60-{{vm.secondClass}}" id="second" >
+        <span ng-repeat="second in vm.second" ng-style="second.style">{{second.value}}</span>
+      </div>
+    </div>
+</div>
+<script src="chineseDate.js"></script>
