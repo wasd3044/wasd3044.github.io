@@ -89,7 +89,7 @@ define(function () {
         vm.calendar.month = chinese.slice(chinese.indexOf('年') +1 ,chinese.indexOf('月')+1);
         vm.calendar.date = chinese.slice(chinese.indexOf('月')+1);
         vm.calendar.ganzhi = result.ganzhi;
-        vm.calendar.hour = nHours[Math.floor(vm.hour/2)] + '时';
+        vm.calendar.hour = nHours[Math.ceil(vm.hour/2)] + '时';
         vm.calendar.mint = vm.hour%2 ? vm.mint>30 ? '二刻' : '初刻': vm.mint>30 ? '四刻' : '三刻'
       })
     })
