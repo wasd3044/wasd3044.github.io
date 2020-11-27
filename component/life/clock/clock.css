@@ -34,11 +34,11 @@ body {
 .calendar {
   position: absolute;
   top:  calc(50% - 10px);
-  left: calc(50% - 14px);
+  left: calc(50% - 35px);
 }
 .calendar span {
   display: inline-block;
-  width: 70px;
+  width: 50px;
   text-align: left;
 }
 .year {

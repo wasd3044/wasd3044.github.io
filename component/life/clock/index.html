@@ -2,9 +2,6 @@
 <div class="clockContent">
     <div class="circle">
       <div class="centerLine"></div>
-      <div class="year">
-        <span>{{vm.years}}</span>
-      </div>
       <div class="year month month-12-{{vm.month}}" id="month">
         <span ng-repeat="month in vm.months" ng-style="month.style">{{month.value}}</span>
       </div>
@@ -21,8 +18,8 @@
         <span ng-repeat="second in vm.seconds" ng-style="second.style">{{second.value}}</span>
       </div>
       <div class="calendar">
-        <span style="width: 50px">{{vm.calendar.Animal}}</span><span>{{vm.calendar.month}}</span><span style="width: 65px">{{vm.calendar.date}}</span>
-        <span style="width: 60px">{{vm.calendar.hour}}</span><span>{{vm.calendar.mint}}</span>
+        <span style="width: 145px">{{vm.calendar.year}}{{vm.calendar.ganzhi}}</span><span style="width: 60px">{{vm.calendar.month}}</span><span style="width: 63px">{{vm.calendar.date}}</span>
+        <span style="width: 62px">{{vm.calendar.hour}}</span><span>{{vm.calendar.mint}}</span>
       </div>
     </div>
 </div>
