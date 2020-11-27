@@ -1,26 +1,25 @@
 <link rel="stylesheet" href="component/life/clock/clock.css">
 <div class="clockContent">
     <div class="circle">
-      <div class="centerLine"></div>
-      <div class="year month month-12-{{vm.month}}" id="month">
-        <span ng-repeat="month in vm.months" ng-style="month.style">{{month.value}}</span>
-      </div>
-      <div class="year day date-30-{{vm.date}}" id="day">
-        <span ng-repeat="day in vm.dates" ng-style="day.style">{{day.value}}</span>
-      </div>
-      <div class="hour day hours-24-{{vm.hour}}" id="hour">
-        <span ng-repeat="hour in vm.hours" ng-style="hour.style">{{hour.value}}</span>
-      </div>
-      <div class="mint day mint-60-{{vm.mint}}" id="mint">
-        <span ng-repeat="mint in vm.mints" ng-style="mint.style">{{mint.value}}</span>
-      </div>
-      <div class="second day sc-60-{{vm.second}}" id="second" >
-        <span ng-repeat="second in vm.seconds" ng-style="second.style">{{second.value}}</span>
-      </div>
       <div class="calendar">
         <span style="width: 145px">{{vm.calendar.year}}{{vm.calendar.ganzhi}}</span><span style="width: 60px">{{vm.calendar.month}}</span><span style="width: 63px">{{vm.calendar.date}}</span>
         <span style="width: 62px">{{vm.calendar.hour}}</span><span>{{vm.calendar.mint}}</span>
       </div>
+<!--      <div class="centerLine"></div>-->
+      <div class="year month month-12-{{vm.month}}" id="month">
+        <span ng-repeat="month in vm.months" ng-style="month.style" ng-class="{'color-blue': (month.value === vm.month)}">{{month.value}}</span>
+      </div>
+      <div class="year day date-30-{{vm.date}}" id="day">
+        <span ng-repeat="day in vm.dates" ng-style="day.style" ng-class="{'color-blue': (day.value === vm.date)}">{{day.value}}</span>
+      </div>
+      <div class="hour day hours-24-{{vm.hour}}" id="hour">
+        <span ng-repeat="hour in vm.hours" ng-style="hour.style" ng-class="{'color-blue': (hour.value === vm.hour)}">{{hour.value}}</span>
+      </div>
+      <div class="mint day mint-60-{{vm.mint}}" id="mint">
+        <span ng-repeat="mint in vm.mints" ng-style="mint.style" ng-class="{'color-blue': (mint.value === vm.mint)}">{{mint.value}}</span>
+      </div>
+      <div class="second day sc-60-{{vm.second}}" id="second" >
+        <span ng-repeat="second in vm.seconds" ng-style="second.style" ng-class="{'color-blue': (second.value === vm.second)}">{{second.value}}</span>
+      </div>
     </div>
 </div>
-<script src="chineseDate.js"></script>

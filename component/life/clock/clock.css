@@ -22,6 +22,7 @@ body {
   height: 100%;
   border: 1px solid #ddd;
   border-radius: 50%;
+  background: #eee;
 }
 .centerLine {
   position: relative;
@@ -33,13 +34,19 @@ body {
 }
 .calendar {
   position: absolute;
+  background: #fff;
   top:  calc(50% - 10px);
   left: calc(50% - 35px);
+  padding-right: 20px;
+  color: #007bff;
 }
 .calendar span {
   display: inline-block;
   width: 50px;
   text-align: left;
+}
+.color-blue {
+  color: #007bff;
 }
 .year {
   position: relative;
