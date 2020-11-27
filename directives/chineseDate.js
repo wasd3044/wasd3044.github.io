@@ -184,9 +184,9 @@ blogApp.service('calendar', function () {
       var mints = ['初','二','三','四'];
       var mint = (SolarHour / 2) ? SolarMint>=30 ? mints[3] : mints[2] : SolarMint>=30 ? mints[1] : mints[0]
       return {
-        year: LunarYear,
-        month: months[LunarMonth],
-        date: dates[LunarDate],
+        // year: LunarYear,
+        // month: months[LunarMonth],
+        // date: dates[LunarDate],
         hour: hours[Math.floor(SolarHour/2)] + '时',
         mint: mint + '刻',
         Animal: Animal,
