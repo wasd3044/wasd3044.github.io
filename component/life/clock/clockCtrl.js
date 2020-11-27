@@ -1,16 +1,29 @@
 define(function () {
   'use strict';
-  blogApp.registerController('clockCtrl', function ($scope, $interval, calendar) {
+  blogApp.registerController('clockCtrl', function ($scope, $interval, calendar, $timeout) {
     var vm = this;
     vm.secondClass = 1;
     vm.mintClass = 1;
+    vm.dateClass = 1;
+    vm.monthClass = 1;
+    vm.hourClass = 1;
     vm.years = new Date().getFullYear();
-    vm.month = [];
+    vm.months = [];
+    vm.hours = [];
+    vm.calendar = {}
     for(var i=1;i<=12;i++) {
-      vm.month.push({
+      vm.months.push({
         value: i,
         style: {
           'transform': 'rotate('+((i-1)*30)+'deg)'
+        }
+      })
+    }
+    for(var i=1;i<=24;i++) {
+      vm.hours.push({
+        value: i,
+        style: {
+          'transform': 'rotate('+((i-1)*15)+'deg)'
         }
       })
     }
@@ -22,25 +35,25 @@ define(function () {
       var d = new Date(year, month, 0);
       return d.getDate();
     }
-    vm.day = [];
+    vm.dates = [];
     for(var i=1;i<=mGetDate();i++) {
-      vm.day.push({
+      vm.dates.push({
         value: i,
         style: {
           'transform': 'rotate('+((i-1)*(360/mGetDate()))+'deg)'
         }
       })
     }
-    vm.mint = [];
-    vm.second = [];
+    vm.mints = [];
+    vm.seconds = [];
     for(var i=1;i<=60;i++) {
-      vm.mint.push({
+      vm.mints.push({
         value: i,
         style: {
           'transform': 'rotate('+((i-1)*6)+'deg)'
         }
       })
-      vm.second.push({
+      vm.seconds.push({
           value: i,
           style: {
             'transform': 'rotate('+((i-1)*6)+'deg)'
@@ -55,15 +68,19 @@ define(function () {
       var hour = getDate.getHours();
       var mint = getDate.getMinutes();
       var second = getDate.getSeconds();
-      vm.secondClass = second;
-      vm.mintClass = mint;
-      vm.dateClass = date;
-      vm.monthClass = month;
+      vm.second = second;
+      vm.mint = mint;
+      vm.date = date;
+      vm.month = month;
+      vm.hour = hour;
       var a= calendar.CalConv(getDate.getFullYear(), month, date)
     }
     $interval(function () {
       init()
     }, 1000)
+    $scope.$watch('vm.mint', function (newValue) {
+      vm.calendar = calendar.CalConv(vm.years, vm.month, vm.date, vm.hour, vm.mint)
+    });
     //年月日时分秒星期
     // 农历月日时刻节气
     // 节假日

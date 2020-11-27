@@ -1,5 +1,5 @@
 blogApp.service('calendar', function () {
-  function CalConv(SolarYear, SolarMonth ,SolarDate)
+  function CalConv(SolarYear, SolarMonth ,SolarDate, SolarHour, SolarMint)
   {
 
     FIRSTYEAR = 1936;
@@ -178,10 +178,17 @@ blogApp.service('calendar', function () {
       if ( LunarMonth > 12 ) LunarMonth -= 12;
 
       // alert("农历/阴历为："+ LunarYear + "年" + LunarMonth + "月 " + LunarDate + "日 " );
+      var months = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+      var dates = ['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五','十六','十七','十八','十九','廿十','廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','卅',];
+      var hours = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥','子'];
+      var mints = ['初','二','三','四'];
+      var mint = (SolarHour / 2) ? SolarMint>=30 ? mints[3] : mints[2] : SolarMint>=30 ? mints[1] : mints[0]
       return {
         year: LunarYear,
-        month: LunarMonth,
-        date: LunarDate,
+        month: months[LunarMonth],
+        date: dates[LunarDate],
+        hour: hours[Math.floor(SolarHour/2)] + '时',
+        mint: mint + '刻',
         Animal: Animal,
       };
 
