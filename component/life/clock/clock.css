@@ -14,7 +14,7 @@ body {
 .clockContent {
   width: 800px;
   height: 800px;
-  margin: calc(50% - 800px) auto 0 auto;
+  margin: 20px auto;
   overflow: hidden;
 }
 .circle {
