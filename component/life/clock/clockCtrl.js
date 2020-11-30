@@ -1,6 +1,6 @@
 define(function () {
   'use strict';
-  blogApp.registerController('clockCtrl', function ($scope, $interval, $http, $timeout) {
+  blogApp.registerController('clockCtrl', function ($scope, $interval, $http, $$http) {
     var vm = this;
     vm.second = 1;
     vm.mint = 1;
@@ -10,7 +10,10 @@ define(function () {
     vm.years = new Date().getFullYear();
     vm.months = [];
     vm.hours = [];
-    vm.calendar = {}
+    vm.calendar = {};
+    vm.holiday = [];
+    vm.workday = [];
+    $scope.changeShowTitle(false);
     for(var i=1;i<=12;i++) {
       vm.months.push({
         value: i,
@@ -78,21 +81,54 @@ define(function () {
       init()
     }, 1000)
     $scope.$watch('vm.mint', function (newValue) {
+      var nHours = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥', '子'];
+      vm.calendar.hour = nHours[Math.ceil(vm.hour/2)] + '时';
+      vm.calendar.mint = vm.hour%2 ? vm.mint>30 ? '二刻' : '初刻': vm.mint>30 ? '四刻' : '三刻'
       // vm.calendar = calendar.CalConv(vm.years, vm.month, vm.date, vm.hour, vm.mint)
     });
-    $scope.$watch('vm.date', function () {
-      var nHours = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥', '子'];
-      $http.get('https://api.xlongwei.com/service/datetime/convert.json').then(function (data) {
-        var result = data.data;
-        var chinese = result.chinese;
-        vm.calendar.year = chinese.slice(0, chinese.indexOf('年')+1);
-        vm.calendar.month = chinese.slice(chinese.indexOf('年') +1 ,chinese.indexOf('月')+1);
-        vm.calendar.date = chinese.slice(chinese.indexOf('月')+1);
-        vm.calendar.ganzhi = result.ganzhi;
-        vm.calendar.hour = nHours[Math.ceil(vm.hour/2)] + '时';
-        vm.calendar.mint = vm.hour%2 ? vm.mint>30 ? '二刻' : '初刻': vm.mint>30 ? '四刻' : '三刻'
+    var callbackName = Math.random().toString(32).replace(/\d/gi, '').replace('.','').slice(-8).toLocaleUpperCase();
+    window[callbackName] = function (data) {
+      var day = data.data[0];
+      vm.almanac = day.almanac.find(function (item) {
+        return item.date === (vm.years+'-'+vm.month+'-'+vm.date)
+      });
+      var holiday = day.holiday.find(function (item) {
+        return item.list.find(function (date) {
+          return date.date.indexOf(vm.years+'-'+vm.month)>-1
+        })
+      });
+      angular.forEach(holiday, function (item) {
+        vm.holiday.rest =item.rest
+          angular.forEach(item.list, function (date) {
+          var ismonth = date.date.split('-')[1] === vm.month;
+          if(!ismonth) {
+            return ;
+          }
+          var day = date.date.split('-')[2];
+          if(date.status === 1) {
+            vm.holiday.push(day)
+          } else {
+            vm.workday.push(day)
+          }
+        })
+      })
+
+      console.log(data);
+    };
+    $scope.$watch('vm.date', function (newvalue) {
+      if(!newvalue) {
+        return ;
+      }
+      $http.jsonp('https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query='+vm.years+'%E5%B9%B4'+vm.month+'%E6%9C%88&resource_id=6018&format=json&cb=window.'+callbackName);
+      $http.get('https://www.mxnzp.com/api/holiday/single/'+vm.years+''+(vm.month>9?vm.month:'0'+vm.month) +''+(vm.date>9?vm.date:'0'+vm.date)+'?app_id=mkchnijvsjunmmco&app_secret=ckp0YkZyL2V4QVV0ZXRaaUFhMWV4dz09').then(function (data) {
+       var result = data.data.data;
+       vm.calendar.year = result.yearTips;
+       vm.calendar.chineseZodiac = result.chineseZodiac;
+        vm.calendar.month = result.lunarCalendar.slice(0,-2);
+        vm.calendar.date = result.lunarCalendar.slice(-2)
       })
     })
+
     //年月日时分秒星期
     // 农历月日时刻节气
     // 节假日

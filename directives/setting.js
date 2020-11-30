@@ -1,4 +1,4 @@
-blogApp.service('$$http', function ($http) {
+blogApp.service('$$http', function ($http, $q) {
     var url = {
         main: 'data/navData.json',
         road: 'data/life/road.json',
@@ -10,8 +10,20 @@ blogApp.service('$$http', function ($http) {
             return value.data
         })
     };
+    var jsonp = function (url) {
+      var defer = $q.defer();
+      var promise = defer.promise;
+      var name = Math.random().toString(32).replace(/\d\./gi,'').slice(-8);
+      $('body').append('<script src="'+url+'&cb=angular.'+name+'"></script>')
+      angular[name] = function (data) {
+          console.log(data)
+        promise.resolve(data)
+      }
+      return promise
+    };
     return {
-        get: get
+        get: get,
+      jsonp: jsonp
     }
 });
 blogApp.directive('ngState', function ($state) {
