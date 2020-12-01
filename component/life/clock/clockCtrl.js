@@ -1,12 +1,12 @@
 define(function () {
   'use strict';
-  blogApp.registerController('clockCtrl', function ($scope, $interval, $http, $$http) {
+  blogApp.registerController('clockCtrl', function ($scope, $interval, $http, calendar) {
     var vm = this;
     vm.second = 1;
     vm.mint = 1;
-    vm.date = 1;
-    vm.month = 1;
-    vm.hour = 1;
+    vm.date = 0;
+    vm.month = 0;
+    vm.hour = 0;
     vm.years = new Date().getFullYear();
     vm.months = [];
     vm.hours = [];
@@ -22,7 +22,7 @@ define(function () {
         }
       })
     }
-    for(var i=1;i<=24;i++) {
+    for(var i=0;i<=23;i++) {
       vm.hours.push({
         value: i,
         style: {
@@ -49,7 +49,7 @@ define(function () {
     }
     vm.mints = [];
     vm.seconds = [];
-    for(var i=1;i<=60;i++) {
+    for(var i=0;i<60;i++) {
       vm.mints.push({
         value: i,
         style: {
@@ -115,19 +115,16 @@ define(function () {
 
       console.log(data);
     };
+    function getdate () {
+      $http.jsonp('https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query='+vm.years+'%E5%B9%B4'+vm.month+'%E6%9C%88&resource_id=6018&format=json&cb=window.'+callbackName);
+      vm.calendar = Object.assign(vm.calendar, calendar.toCn(vm.years, vm.month, vm.date));
+    }
     $scope.$watch('vm.date', function (newvalue) {
       if(!newvalue) {
         return ;
       }
-      $http.jsonp('https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query='+vm.years+'%E5%B9%B4'+vm.month+'%E6%9C%88&resource_id=6018&format=json&cb=window.'+callbackName);
-      $http.get('https://www.mxnzp.com/api/holiday/single/'+vm.years+''+(vm.month>9?vm.month:'0'+vm.month) +''+(vm.date>9?vm.date:'0'+vm.date)+'?app_id=mkchnijvsjunmmco&app_secret=ckp0YkZyL2V4QVV0ZXRaaUFhMWV4dz09').then(function (data) {
-       var result = data.data.data;
-       vm.calendar.year = result.yearTips;
-       vm.calendar.chineseZodiac = result.chineseZodiac;
-        vm.calendar.month = result.lunarCalendar.slice(0,-2);
-        vm.calendar.date = result.lunarCalendar.slice(-2)
-      })
-    })
+      getdate()
+    });
 
     //年月日时分秒星期
     // 农历月日时刻节气

@@ -2,14 +2,16 @@
 <div class="clockContent">
     <div class="holiday">
       <div class="holidayContent">
+        <p>{{vm.calendar.gzYear}}年 {{vm.calendar.gzMonth}}月 {{vm.calendar.gzDay}}日</p>
+        <p>{{vm.calendar.ncWeek}}</p>
         <p>宜：{{vm.almanac.suit}}</p>
-        <p>忌：{{vm.almanac.avoid}}</p>
+        <p style="color: red">忌：{{vm.almanac.avoid}}</p>
         <p class="color-red">{{vm.holiday.rest}}</p>
       </div>
     </div>
     <div class="circle">
       <div class="calendar">
-        <span style="width: 145px;text-align: right;padding-right: 35px;">{{vm.calendar.year}}({{vm.calendar.chineseZodiac}})年</span><span style="width: 60px">{{vm.calendar.month}}</span><span style="width: 63px">{{vm.calendar.date}}</span>
+        <span style="width: 145px;text-align: right;padding-right: 35px;">{{vm.calendar.gzYear}}({{vm.calendar.Animal}})年</span><span style="width: 60px">{{vm.calendar.IMonthCn}}</span><span style="width: 63px">{{vm.calendar.IDayCn}}</span>
         <span style="width: 62px">{{vm.calendar.hour}}</span><span>{{vm.calendar.mint}}</span>
       </div>
 <!--      <div class="centerLine"></div>-->
