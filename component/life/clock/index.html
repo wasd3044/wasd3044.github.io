@@ -18,7 +18,7 @@
       <div class="year month month-12-{{vm.month}}" id="month">
         <span ng-repeat="month in vm.months" ng-style="month.style" ng-class="{'color-blue': (month.value === vm.month)}">{{month.value}}</span>
       </div>
-      <div class="year day date-30-{{vm.date}}" id="day">
+      <div class="year day date-{{vm.dates.length}}-{{vm.date}}" id="day">
         <span ng-repeat="day in vm.dates" ng-style="day.style" ng-class="{'color-blue': (day.value === vm.date), 'color-red': vm.workday.indexOf(day.value)>-1,'color-green':vm.holiday.indexOf(day.value)>-1}">{{day.value}}</span>
       </div>
       <div class="hour day hours-24-{{vm.hour}}" id="hour">
