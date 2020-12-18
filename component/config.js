@@ -21,7 +21,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
     .state("main", {
       url: '/main',
       resolve: {
-        'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl'])
+        'dummy': $couchPotatoProvider.resolveDependencies(['./component/dashboard/bodyCtrl', './directives/playAudio'])
       },
       views: {
         'mainView': {
@@ -35,13 +35,13 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
     .state("main.road", {
       url: '/road',
       resolve: {
-        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/road/roadCtrl'])
+        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/clock/clockCtrl', './directives/calendar'])
       },
       views: {
         'lifeView': {
-          templateUrl: './component/life/road/road.html',
-          css: './component/life/road/road.css',
-          controller: 'roadCtrl',
+          templateUrl: './component/life/clock/index.html',
+          css: './component/life/clock/clock.css',
+          controller: 'clockCtrl',
           controllerAs: 'vm'
         }
       }
@@ -90,7 +90,7 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
     .state("main.clock", {
       url: '/clock',
       resolve: {
-        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/clock/clockCtrl'])
+        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/clock/clockCtrl', './directives/calendar'])
       },
       views: {
         'mainView@': {

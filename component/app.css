@@ -6,11 +6,15 @@
 .navbar-nav li{
     cursor: pointer;
 }
+.navbar-brand, .nav-link {
+  font-family: cursive;
+}
 .systembutton {
   right: 145px;
 }
 body{
     font-size: 16px;
+  font-family: cursive;
 }
 .bg-light {
     background: none !important;

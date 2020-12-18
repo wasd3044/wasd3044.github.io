@@ -6,6 +6,8 @@ var cssStr = "body {\n" +
   "    background-image: url(\"./img/lifebg.jpg\");\n" +
   "    background-size: 100% 110%;\n" +
   "    overflow: hidden;\n" +
+  "    background-image: url(\"./img/lifebg.jpg\");\n" +
+  "    background-size: 100% 110%;\n" +
   "}\n" +
   ".htmlTitle{\n" +
   "    background: #985f0d;\n" +
@@ -14,16 +16,17 @@ var cssStr = "body {\n" +
   ".clockContent {\n" +
   "  width: 800px;\n" +
   "  height: 800px;\n" +
-  "  margin: 20px auto;\n" +
+  "  margin: 40px 40px;\n" +
   "  overflow: hidden;\n" +
   "}\n" +
   ".circle {\n" +
   "  position: relative;\n" +
   "  width: 100%;\n" +
   "  height: 100%;\n" +
-  "  border: 1px solid #ddd;\n" +
   "  border-radius: 50%;\n" +
-  "  background: #eee;\n" +
+  "  overflow: hidden;\n" +
+  "  font-weight: bold;\n" +
+  "  color: #fff;\n" +
   "}\n" +
   ".centerLine {\n" +
   "  position: relative;\n" +
@@ -35,7 +38,7 @@ var cssStr = "body {\n" +
   "}\n" +
   ".calendar {\n" +
   "  position: absolute;\n" +
-  "  background: #fff;\n" +
+  "  background: #07091e;\n" +
   "  top:  calc(50% - 12px);\n" +
   "  left: calc(50% - 35px);\n" +
   "  padding-right: 20px;\n" +
@@ -142,7 +145,8 @@ var cssStr = "body {\n" +
   "  top: 0;\n" +
   "  width: 800px;\n" +
   "  height: 800px;\n" +
-  "  background: #fff;\n" +
+  "  background: linear-gradient(to bottom, #13152c 0%,#1a2f9a 100%);\n" +
+  "  color: #fff;\n" +
   "  opacity: 0.9;\n" +
   "  border-radius: 50%;\n" +
   "  z-index: 2;\n" +
@@ -157,7 +161,7 @@ var cssStr = "body {\n" +
 var fs = require('fs')
 // 秒
 for (var i = 1; i <= 60; i++) {
-  cssStr += '.sc-60-' + (i===60?0:i) + '{';
+  cssStr += '.sc-60-' + (i === 60 ? 0 : i) + '{';
   cssStr += 'animation: sc60' + i + ' 1s;}';
   cssStr += '@keyframes sc60' + i + '{'
   cssStr += 'from {transform: rotate(-' + (6 * i) + 'deg);}'
@@ -166,71 +170,71 @@ for (var i = 1; i <= 60; i++) {
   cssStr += '}'
 }
 // 分钟
-for(var i=1;i<=60; i++) {
-    cssStr += '.mint-60-'+(i===60?0:i)+'{';
-    cssStr += 'transform: rotate(-'+(6*(i-1))+'deg);';
-    cssStr += 'animation: mint60'+i+' 3s;}';
-    cssStr += '@keyframes mint60'+i+'{'
-    cssStr += 'from {transform: rotate(-'+(6*i)+'deg);}'
-    cssStr += '50% {transform: rotate(360deg);}'
-    cssStr += 'to {transform: rotate(-'+(6*(i-1))+'deg);}'
-    cssStr += '}'
+for (var i = 1; i <= 60; i++) {
+  cssStr += '.mint-60-' + (i === 60 ? 0 : i) + '{';
+  cssStr += 'transform: rotate(-' + (6 * (i - 1)) + 'deg);';
+  cssStr += 'animation: mint60' + i + ' 3s;}';
+  cssStr += '@keyframes mint60' + i + '{'
+  cssStr += 'from {transform: rotate(-' + (6 * i) + 'deg);}'
+  cssStr += '50% {transform: rotate(360deg);}'
+  cssStr += 'to {transform: rotate(-' + (6 * (i - 1)) + 'deg);}'
+  cssStr += '}'
 }
 // 日
-for(var i=1;i<=30; i++) {
-    cssStr += '.date-30-'+i+'{';
-    cssStr += 'transform: rotate(-'+(12*(i-1))+'deg);';
-    cssStr += 'animation: date30'+i+' 3s;}';
-    cssStr += '@keyframes date30'+i+'{'
-    cssStr += 'from {transform: rotate(-'+(12*i)+'deg);}'
-    cssStr += '50% {transform: rotate(-360deg);}'
-    cssStr += 'to {transform: rotate(-'+(12*(i-1))+'deg);}'
-    cssStr += '}'
-}
-for(var i=1;i<=31; i++) {
-  cssStr += '.date-31-'+i+'{';
-  cssStr += 'transform: rotate(-'+((360/31)*(i-1))+'deg);';
-  cssStr += 'animation: date30'+i+' 3s;}';
-  cssStr += '@keyframes date30'+i+'{'
-  cssStr += 'from {transform: rotate(-'+(12*i)+'deg);}'
+for (var i = 1; i <= 30; i++) {
+  cssStr += '.date-30-' + i + '{';
+  cssStr += 'transform: rotate(-' + (12 * (i - 1)) + 'deg);';
+  cssStr += 'animation: date30' + i + ' 3s;}';
+  cssStr += '@keyframes date30' + i + '{'
+  cssStr += 'from {transform: rotate(-' + (12 * i) + 'deg);}'
   cssStr += '50% {transform: rotate(-360deg);}'
-  cssStr += 'to {transform: rotate(-'+(12*(i-1))+'deg);}'
+  cssStr += 'to {transform: rotate(-' + (12 * (i - 1)) + 'deg);}'
   cssStr += '}'
 }
-for(var i=1;i<=28; i++) {
-  cssStr += '.date-28-'+i+'{';
-  cssStr += 'transform: rotate(-'+((360/28)*(i-1))+'deg);';
-  cssStr += 'animation: date30'+i+' 3s;}';
-  cssStr += '@keyframes date30'+i+'{'
-  cssStr += 'from {transform: rotate(-'+(12*i)+'deg);}'
+for (var i = 1; i <= 31; i++) {
+  cssStr += '.date-31-' + i + '{';
+  cssStr += 'transform: rotate(-' + ((360 / 31) * (i - 1)) + 'deg);';
+  cssStr += 'animation: date30' + i + ' 3s;}';
+  cssStr += '@keyframes date30' + i + '{'
+  cssStr += 'from {transform: rotate(-' + ((360 / 31) * i) + 'deg);}'
   cssStr += '50% {transform: rotate(-360deg);}'
-  cssStr += 'to {transform: rotate(-'+(12*(i-1))+'deg);}'
+  cssStr += 'to {transform: rotate(-' + ((360 / 31) * (i - 1)) + 'deg);}'
   cssStr += '}'
 }
-for(var i=1;i<=29; i++) {
-  cssStr += '.date-29-'+i+'{';
-  cssStr += 'transform: rotate(-'+((360/29)*(i-1))+'deg);';
-  cssStr += 'animation: date30'+i+' 3s;}';
-  cssStr += '@keyframes date30'+i+'{'
-  cssStr += 'from {transform: rotate(-'+(12*i)+'deg);}'
+for (var i = 1; i <= 28; i++) {
+  cssStr += '.date-28-' + i + '{';
+  cssStr += 'transform: rotate(-' + ((360 / 28) * (i - 1)) + 'deg);';
+  cssStr += 'animation: date30' + i + ' 3s;}';
+  cssStr += '@keyframes date30' + i + '{'
+  cssStr += 'from {transform: rotate(-' + ((360 / 28) * i) + 'deg);}'
   cssStr += '50% {transform: rotate(-360deg);}'
-  cssStr += 'to {transform: rotate(-'+(12*(i-1))+'deg);}'
+  cssStr += 'to {transform: rotate(-' + ((360 / 28) * (i - 1)) + 'deg);}'
+  cssStr += '}'
+}
+for (var i = 1; i <= 29; i++) {
+  cssStr += '.date-29-' + i + '{';
+  cssStr += 'transform: rotate(-' + ((360 / 29) * (i - 1)) + 'deg);';
+  cssStr += 'animation: date30' + i + ' 3s;}';
+  cssStr += '@keyframes date30' + i + '{'
+  cssStr += 'from {transform: rotate(-' + ((360 / 29) * i) + 'deg);}'
+  cssStr += '50% {transform: rotate(-360deg);}'
+  cssStr += 'to {transform: rotate(-' + ((360 / 29) * (i - 1)) + 'deg);}'
   cssStr += '}'
 }
 // 月
-for(var i=1;i<=12; i++) {
-    cssStr += '.month-12-'+i+'{';
-    cssStr += 'transform: rotate(-'+(30*(i-1))+'deg);';
-    cssStr += 'animation: month12'+i+' 3s;}';
-    cssStr += '@keyframes month12'+i+'{'
-    cssStr += 'from {transform: rotate(-'+(30*i)+'deg);}'
-    cssStr += '50% {transform: rotate(-360deg);}'
-    cssStr += 'to {transform: rotate(-'+(30*(i-1))+'deg);}'
-    cssStr += '}'
+for (var i = 1; i <= 12; i++) {
+  cssStr += '.month-12-' + i + '{';
+  cssStr += 'transform: rotate(-' + (30 * (i - 1)) + 'deg);';
+  cssStr += 'animation: month12' + i + ' 3s;}';
+  cssStr += '@keyframes month12' + i + '{'
+  cssStr += 'from {transform: rotate(-' + (30 * i) + 'deg);}'
+  cssStr += '50% {transform: rotate(-360deg);}'
+  cssStr += 'to {transform: rotate(-' + (30 * (i - 1)) + 'deg);}'
+  cssStr += '}'
 }
 // 小时
 for (var i = 1; i <= 24; i++) {
-  cssStr += '.hours-24-' + (i===24?0:i) + '{';
+  cssStr += '.hours-24-' + (i === 24 ? 0 : i) + '{';
   cssStr += 'transform: rotate(-' + (15 * (i - 1)) + 'deg);';
   cssStr += 'animation: hours24' + i + ' 3s;}';
   cssStr += '@keyframes hours24' + i + '{'

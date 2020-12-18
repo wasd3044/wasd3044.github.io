@@ -13,7 +13,7 @@ define(function () {
     vm.calendar = {};
     vm.holiday = [];
     vm.workday = [];
-    $scope.changeShowTitle(false);
+    // $scope.changeShowTitle(false);
     for(var i=1;i<=12;i++) {
       vm.months.push({
         value: i,
@@ -31,22 +31,7 @@ define(function () {
       })
     }
 
-    function mGetDate(){
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth()+1;
-      var d = new Date(year, month, 0);
-      return d.getDate();
-    }
-    vm.dates = [];
-    for(var i=1;i<=mGetDate();i++) {
-      vm.dates.push({
-        value: i,
-        style: {
-          'transform': 'rotate('+((i-1)*(360/mGetDate()))+'deg)'
-        }
-      })
-    }
+
     vm.mints = [];
     vm.seconds = [];
     for(var i=0;i<60;i++) {
@@ -118,6 +103,22 @@ define(function () {
     function getdate () {
       $http.jsonp('https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query='+vm.years+'%E5%B9%B4'+vm.month+'%E6%9C%88&resource_id=6018&format=json&cb=window.'+callbackName);
       vm.calendar = Object.assign(vm.calendar, calendar.toCn(vm.years, vm.month, vm.date));
+      function mGetDate(){
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth()+1;
+        var d = new Date(year, month, 0);
+        return d.getDate();
+      }
+      vm.dates = [];
+      for(var i=1;i<=mGetDate();i++) {
+        vm.dates.push({
+          value: i,
+          style: {
+            'transform': 'rotate('+((i-1)*(360/mGetDate()))+'deg)'
+          }
+        })
+      }
     }
     $scope.$watch('vm.date', function (newvalue) {
       if(!newvalue) {

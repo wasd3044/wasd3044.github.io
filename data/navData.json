@@ -3,33 +3,28 @@
     "name": "生活",
     "mainRouter": {
       "state": "myapp",
-      "text": "我的小窝"
+      "text": "一缕嫣然"
     },
     "routers": [
       {
         "id": 0,
         "state": "main.road",
-        "text": "一路相随"
+        "text": "念归离"
       },
       {
         "id": 1,
         "state": "main.city",
-        "text": "半城烟沙"
+        "text": "红尘雪"
       },
       {
         "id": 2,
         "state": "main.life",
-        "text": "一曲相思"
+        "text": "恋尘梦"
       },
       {
         "id": 3,
         "state": "main.love",
-        "text": "一生一世"
-      },
-      {
-        "id": 4,
-        "state": "main.clock",
-        "text": "时钟"
+        "text": "月浅凝"
       }
     ]
   },
