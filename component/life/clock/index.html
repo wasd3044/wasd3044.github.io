@@ -29,7 +29,7 @@
         <span ng-repeat="mint in vm.mints" ng-style="mint.style" ng-class="{'color-blue': (mint.value === vm.mint)}">{{mint.value}}</span>
       </div>
       <div class="second day sc-60-{{vm.second}}" id="second" >
-        <span ng-repeat="second in vm.seconds" ng-style="second.style" ng-class="{'color-blue': (second.value === vm.second)}">{{second.value}}</span>
+        <span ng-repeat="second in vm.seconds" ng-style="second.style">{{second.value}}</span>
       </div>
     </div>
 </div>
