@@ -35,14 +35,23 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
     .state("main.road", {
       url: '/road',
       resolve: {
-        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/clock/clockCtrl', './directives/calendar'])
+        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/road/roadCtrl', './directives/calendar'])
       },
       views: {
         'lifeView': {
-          templateUrl: './component/life/clock/index.html',
-          css: './component/life/clock/clock.css',
-          controller: 'clockCtrl',
+          templateUrl: './component/life/road/index.html',
+          css: './component/life/road/road.css',
+          controller: 'roadCtrl',
           controllerAs: 'vm'
+        }
+      }
+    })
+    .state("main.message", {
+      url: '/message',
+      views: {
+        'lifeView': {
+          templateUrl: './component/life/message/message.html',
+          css: './component/life/message/message.css',
         }
       }
     })
@@ -83,20 +92,6 @@ blogApp.config(['$stateProvider', '$couchPotatoProvider', '$controllerProvider',
           templateUrl: './component/life/life/life.html',
           css: './component/dashboard/body.css',
           controller: 'bodyCtrl',
-          controllerAs: 'vm'
-        }
-      }
-    })
-    .state("main.clock", {
-      url: '/clock',
-      resolve: {
-        'dummy': $couchPotatoProvider.resolveDependencies(['./component/life/clock/clockCtrl', './directives/calendar'])
-      },
-      views: {
-        'mainView@': {
-          templateUrl: './component/life/clock/index.html',
-          css: './component/life/clock/index.css',
-          controller: 'clockCtrl',
           controllerAs: 'vm'
         }
       }

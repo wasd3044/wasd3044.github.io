@@ -1,7 +1,7 @@
 var cssStr = ""
 var fs = require('fs')
 
-var fileStr = fs.readFileSync('./clock.css','utf-8');
+var fileStr = fs.readFileSync('./road.css','utf-8');
 cssStr += fileStr.slice(0, fileStr.indexOf('.sc-60'));
 cssStr += '\n';
 // 秒
@@ -96,7 +96,7 @@ for (var i = 1; i <= 24; i++) {
   cssStr += '  to {transform: rotate(-' + (15 * (i - 1)) + 'deg);}\n'
   cssStr += '}\n'
 }
-fs.writeFile('./clock.css', cssStr, () => {
+fs.writeFile('./road.css', cssStr, () => {
 });
 //.sc-60-58 {
 //   animation: sc6058 1s;
