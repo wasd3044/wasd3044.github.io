@@ -30,6 +30,12 @@
       "function": [
         "left:450+(Math.sin(deg)*500),\ntop: 70+(Math.sin(deg+(Math.PI/2))*188)\n450：圆心坐标（需要根据图片大小调节）\n\n70：圆心坐标（需要根据图片大小调节）\n\n500：长半径\n\n188：短半径\n\ndeg：角度值一圈为Math.PI*2"
       ]
+    },
+    "Unrepeated": {
+      "lable": "数组去重",
+      "function": [
+        "function duplicate(arr, index = 0) {\n\tlet item = arr[index]\n\tlet font = arr.slice(0, index)\n\tlet surplus = arr.slice(index + 1)\n\tif (!surplus.length) {\n\t\treturn arr\n\t}\n\tif (surplus.includes(item)) {\n\t\treturn duplicate(font.concat(surplus), index)\n\t} else {\n\t\treturn duplicate(arr, index + 1)\n\t}\n}"
+      ]
     }
   }
 }
