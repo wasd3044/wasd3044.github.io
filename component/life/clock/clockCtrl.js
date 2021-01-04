@@ -13,6 +13,10 @@ define(function () {
     vm.calendar = {};
     vm.holiday = [];
     vm.workday = [];
+    vm.almanac = {
+      avoid: '数据无法返回请检查...',
+      rest: '数据无法返回请检查...'
+    };
     // $scope.changeShowTitle(false);
     for(var i=1;i<=12;i++) {
       vm.months.push({
@@ -71,8 +75,7 @@ define(function () {
       vm.calendar.mint = vm.hour%2 ? vm.mint>30 ? '二刻' : '初刻': vm.mint>30 ? '四刻' : '三刻'
       // vm.calendar = calendar.CalConv(vm.years, vm.month, vm.date, vm.hour, vm.mint)
     });
-    var callbackName = Math.random().toString(32).replace(/\d/gi, '').replace('.','').slice(-8).toLocaleUpperCase();
-    window[callbackName] = function (data) {
+    window.finData = function (data) {
       var day = data.data[0];
       vm.almanac = day.almanac.find(function (item) {
         return item.date === (vm.years+'-'+vm.month+'-'+vm.date)
@@ -101,7 +104,7 @@ define(function () {
       console.log(data);
     };
     function getdate () {
-      $http.jsonp('https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query='+vm.years+'%E5%B9%B4'+vm.month+'%E6%9C%88&resource_id=6018&format=json&cb=window.'+callbackName);
+      $http.jsonp('https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query='+vm.years+'%E5%B9%B4'+vm.month+'%E6%9C%88&resource_id=6018&format=json&cb=window.finData');
       vm.calendar = Object.assign(vm.calendar, calendar.toCn(vm.years, vm.month, vm.date));
       function mGetDate(){
         var date = new Date();
