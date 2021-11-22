@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="component/app.css">
 </head>
 <body ng-controller="mainCtrl as vm">
-<nav ng-if="vm.isShowTitle" class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav ng-if="vm.isShowTitle" class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">{{vm.mainRouter.text}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 <!--<button ng-if="vm.isShowTitle" class="btn btn-primary chTypeButton systembutton" ng-click="vm.changeSystem()">-->
 <!--  angular10-->
 <!--</button>-->
-<button ng-if="vm.isShowTitle" class="btn btn-primary chTypeButton" ng-click="vm.changeType()">切换模式/{{vm.type}}</button>
+<button ng-if="vm.isShowTitle" class="btn btn-primary chTypeButton" ng-click="vm.changeType()">切换模式/{{vm.type}}</button> -->
 <div ui-view="mainView" class="mainBody"></div>
 </body>
 </html>
