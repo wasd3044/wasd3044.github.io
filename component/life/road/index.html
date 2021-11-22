@@ -9,11 +9,11 @@
           <p style="color: red">忌：{{vm.almanac.avoid}}</p>
           <p class="color-red">{{vm.holiday.rest}}</p>
         </div>
-      </div>
+      </div>-->
       <div class="calendar">
         <span style="width: 145px;text-align: right;padding-right: 35px;">{{vm.calendar.gzYear}}({{vm.calendar.Animal}})年</span><span style="width: 60px">{{vm.calendar.IMonthCn}}</span><span style="width: 63px">{{vm.calendar.IDayCn}}</span>
         <span style="width: 62px">{{vm.calendar.hour}}</span><span>{{vm.calendar.mint}}</span>
-      </div> -->
+      </div> 
 <!--      <div class="centerLine"></div>-->
       <div class="year month month-12-{{vm.month}}" id="month">
         <span ng-repeat="month in vm.months" ng-style="month.style" ng-class="{'color-blue': (month.value === vm.month)}">{{month.value}}</span>
